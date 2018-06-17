@@ -26,7 +26,10 @@ export default {
     */
     username: {
       type: String,
-      required: true
+    },
+
+    tag: {
+      type: String,
     },
 
     /*
@@ -65,8 +68,8 @@ export default {
 
   mounted () {
     jsonp({
-      url: 'https://api.instagram.com/v1/users/search',
-      data: { access_token: this.token, q: this.username },
+      url: 'https://api.instagram.com/v1/tags/' + this.tag ,
+      data: { access_token: this.token },
       error: error => { throw error },
       complete: response => {
         if (response.meta.code === 400) this.error = response.meta
