@@ -68,7 +68,7 @@ export default {
 
   mounted () {
     jsonp({
-      url: 'https://api.instagram.com/v1/tags/' + this.tag ,
+      url: `https://api.instagram.com/v1/tags/${this.tag}/media/recent`,
       data: { access_token: this.token },
       error: error => { throw error },
       complete: response => {
